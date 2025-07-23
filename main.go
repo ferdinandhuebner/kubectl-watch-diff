@@ -63,6 +63,8 @@ func main() {
 			prevFile, err := writeYaml(prev)
 			checkErr(err)
 			nextFile, err := writeYaml(data)
+			prev = data
+
 			checkErr(err)
 			cmd := exec.Command("diff", "-u", prevFile.Name(), nextFile.Name())
 			cmd.Stdout = os.Stdout
