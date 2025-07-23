@@ -27,7 +27,8 @@ func writeYaml(data []byte) (*os.File, error) {
 }
 
 func closeAndDelete(f *os.File) {
-
+	checkErr(f.Close())
+	checkErr(os.Remove(f.Name()))
 }
 
 func main() {
