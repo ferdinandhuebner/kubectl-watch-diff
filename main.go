@@ -67,7 +67,7 @@ func main() {
 			prev = data
 
 			checkErr(err)
-			cmd := exec.Command("diff", "-u", prevFile.Name(), nextFile.Name())
+			cmd := exec.Command("diff", "-u", "--color=always", prevFile.Name(), nextFile.Name())
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
 			_ = cmd.Run()
